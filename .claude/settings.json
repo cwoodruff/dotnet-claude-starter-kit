@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "dotnet build --no-restore -v q --nologo 2>&1 | grep -E '(error|warning [A-Z]+[0-9]+|Build succeeded|FAILED)' | head -30"
+          }
+        ]
+      }
+    ]
+  }
+}
